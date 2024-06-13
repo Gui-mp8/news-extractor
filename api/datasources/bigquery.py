@@ -10,11 +10,15 @@ class BigQueryR(IRepository):
         self.table_name = table_name
         self.table_id = f"{project_name}.{self.dataset_name}.{self.table_name}"
 
-    def get_by_word_in_content(self, word: str) -> List[Dict[str, Any]]:
+    def get_by_word_in_content(self) -> List[Dict[str, Any]]:
         query = f"""
             SELECT * FROM `{self.table_id}`
-            WHERE LOWER(content) LIKE "%{word}%"
         """
+    # def get_by_word_in_content(self, word: str) -> List[Dict[str, Any]]:
+    #     query = f"""
+    #         SELECT * FROM `{self.table_id}`
+    #         WHERE LOWER(content) LIKE "%{word}%"
+    #     """
         try:
             query_job = self.client.query(query)
             results = query_job.result()  # Waits for job to complete.
