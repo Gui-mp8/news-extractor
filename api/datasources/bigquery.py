@@ -13,7 +13,6 @@ class BigQueryR(IRepository):
     def all_data(self) -> List[Dict[str, Any]]:
         query = f"""
             SELECT * FROM `{self.table_id}`
-            
         """
         try:
             query_job = self.client.query(query)
