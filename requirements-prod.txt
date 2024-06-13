@@ -1,0 +1,5 @@
+bs4==0.0.2
+fastapi==0.111.0
+google-cloud-bigquery==3.24.0
+pydantic==2.7.4
+uvicorn==0.30.1
