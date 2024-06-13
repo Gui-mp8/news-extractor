@@ -6,7 +6,7 @@ from api.datasources.bigquery import BigQueryR
 
 from fastapi import APIRouter, Depends
 
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "./news-extraction.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "$HOME/news-extraction.json"
 
 the_guardian_router = APIRouter()
 
