@@ -22,10 +22,10 @@ jobs:
       - name: Set up Google Cloud credentials
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
 
       - name: Run tests
         env:
-          GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/news-extraction.json
+          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ github.workspace }}/news-extraction.json
         run: |
           pytest -v tests/
