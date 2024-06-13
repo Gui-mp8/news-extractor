@@ -89,7 +89,7 @@ class BigQueryR(IRepository):
                 job_config=job_config
             )
 
-            load_job.result()  # Wait for the job to complete.
+            load_job.result()
 
             print(f"New rows have been added: {len(new_data)} rows.")
         else:
