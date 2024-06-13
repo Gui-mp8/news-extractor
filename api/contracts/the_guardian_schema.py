@@ -1,6 +1,8 @@
-from pydantic import BaseModel, Optional
+from typing import Optional
 
-class TheGuardian(BaseModel):
+from pydantic import BaseModel
+
+class TheGuardianSchema(BaseModel):
     article_date: Optional[str]
     title: Optional[str]
     subtitle: Optional[str]
