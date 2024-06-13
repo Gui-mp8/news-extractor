@@ -75,11 +75,9 @@ class TheGuardian:
         soup = self.get_soup()
         author_div = soup.find('div', class_='dcr-1cfpnlw')
 
-        # Extract the author name from the <a> tag with rel="author"
         author_tag = author_div.find('a', rel='author') if author_div else None
         author_name = author_tag.text if author_tag else None
 
-        # Extract the author's profile link
         author_profile_link = author_tag['href'] if author_tag else None
 
         return author_name, author_profile_link

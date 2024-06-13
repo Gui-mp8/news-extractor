@@ -6,7 +6,7 @@ from api.datasources.bigquery import BigQueryR
 
 from fastapi import APIRouter, Depends
 
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "./news-extraction.json"
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "./news-extraction.json"
 
 the_guardian_router = APIRouter()
 
@@ -15,11 +15,12 @@ def root():
     return {"message": "Hello World"}
 
 @the_guardian_router.get("/content", response_model=List[TheGuardianSchema])
-def filter_by_content(repository: BigQueryR = Depends(BigQueryR)):
+def all_content(repository: BigQueryR = Depends(BigQueryR)):
     results = repository.get_by_word_in_content()
     return results
 
-# @the_guardian_router.get("/content/{word}", response_model=List[TheGuardianSchema])
-# def filter_by_content(word: str, repository: BigQueryR = Depends(BigQueryR)):
-#     results = repository.get_by_word_in_content(word)
-#     return results
+@the_guardian_router.get("/content/{word}", response_model=List[TheGuardianSchema])
+def filter_by_content(word: str, repository: BigQueryR = Depends(BigQueryR)):
+    results = repository.get_by_word_in_content(word)
+    return results
+

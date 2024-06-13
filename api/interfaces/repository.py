@@ -3,7 +3,11 @@ from abc import ABC, abstractmethod
 
 class IRepository(ABC):
     @abstractmethod
-    def get_by_word_in_content(self) -> List[Dict[str, Any]]:
+    def all_data(self) -> List[Dict[str, Any]]:
+        raise NotImplementedError
+
+    @abstractmethod
+    def filter_by_word(self) -> List[Dict[str, Any]]:
         raise NotImplementedError
 
     # @abstractmethod
