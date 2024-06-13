@@ -16,9 +16,6 @@ def main():
 
     bq.create_dataset()
     bq.create_table()
-
-    # for line in json_data:
-
     bq.insert_rows(data=data)
 
 
