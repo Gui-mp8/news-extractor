@@ -21,5 +21,5 @@ def main():
 
 
 if __name__ == '__main__':
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "./news-extraction.json"
+    # os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "./news-extraction.json"
     main()
