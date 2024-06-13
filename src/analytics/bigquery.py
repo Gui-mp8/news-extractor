@@ -30,6 +30,8 @@ class BigQueryR(IRepository):
             bigquery.SchemaField("subtitle", "STRING"),
             bigquery.SchemaField("content", "STRING"),
             bigquery.SchemaField("article", "STRING"),
+            bigquery.SchemaField("author", "STRING"),
+            bigquery.SchemaField("author_profile_link", "STRING"),
         ]
 
         table = bigquery.Table(table_ref, schema=schema)
@@ -76,6 +78,8 @@ class BigQueryR(IRepository):
                     bigquery.SchemaField("subtitle", "STRING"),
                     bigquery.SchemaField("content", "STRING"),
                     bigquery.SchemaField("article", "STRING"),
+                    bigquery.SchemaField("author", "STRING"),
+                    bigquery.SchemaField("author_profile_link", "STRING"),
                 ],
             )
 
@@ -85,7 +89,7 @@ class BigQueryR(IRepository):
                 job_config=job_config
             )
 
-            load_job.result()  # Wait for the job to complete.
+            load_job.result()
 
             print(f"New rows have been added: {len(new_data)} rows.")
         else:

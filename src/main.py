@@ -5,7 +5,8 @@ from analytics.bigquery import BigQueryR
 
 def main():
     the_guardian = TheGuardian()
-    data = the_guardian.get_page_content()
+    the_guardian.site_url = "https://www.theguardian.com/au"
+    data = the_guardian.get_structured_page_content()
 
     bq = BigQueryR(
             project_name="news-extraction-426201",
@@ -15,9 +16,6 @@ def main():
 
     bq.create_dataset()
     bq.create_table()
-
-    # for line in json_data:
-
     bq.insert_rows(data=data)
 
 
