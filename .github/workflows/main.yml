@@ -5,27 +5,24 @@ on: pull_request
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Check out repository
+        uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - name: Set up python
+        id: setup-python
+        uses: actions/setup-python@v4
         with:
           python-version: '3.10'
 
-      - name: Install dependencies
-        run: |
-          pip install -r requirements-dev.txt
-
-      - name: Set up Google Cloud credentials
+      - name: Authenticate Google Cloud
         uses: google-github-actions/auth@v2
         with:
-          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
+          credentials_json: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}"
+          # service_account: 'your-service account'
+          # workload_identity_provider: 'your-workload-identity-provider'
 
-      - name: Run tests
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ github.workspace }}/news-extraction.json
+      - name: Run install requirements & tests
         run: |
+          pip install -r requirements-dev.txt
           pytest -v tests/
