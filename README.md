@@ -7,8 +7,6 @@ This project utilizes a Design Pattern called [Repository](https://python.plaine
 ## Pre-Requisites
 Before running the code, ensure you have the following tools installed:
 
-- [Python](https://www.python.org/downloads/)
-
 - [Docker](https://docs.docker.com/engine/install/ubuntu/)
 
 - [docker compose plugin](https://docs.docker.com/compose/install/linux/#install-using-the-repository) updated
@@ -46,8 +44,10 @@ In the second environment, consume the API with the following command:
 curl -i http://0.0.0.0:8000/content/keyword=pandas
 ```
 
-Or you can make a test with python:
+Or you can make a test with any language:
 ```
+# Python Example:
+
 import requests
 
 response = requests.get("http://0.0.0.0:8000/content/keyword=pandas")
