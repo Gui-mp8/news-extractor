@@ -43,14 +43,14 @@ docker compose up
 In the second environment, consume the API with the following command:
 
 ```
-curl -i http://0.0.0.0:8000/content/word=pandas
+curl -i http://0.0.0.0:8000/content/keyword=pandas
 ```
 
 Or you can make a test with python:
 ```
 import requests
 
-response = requests.get("http://0.0.0.0:8000/content/word=pandas")
+response = requests.get("http://0.0.0.0:8000/content/keyword=pandas")
 
 if response.status_code == 200:
 

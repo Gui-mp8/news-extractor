@@ -19,7 +19,7 @@ def all_content(repository: BigQueryR = Depends(BigQueryR)):
     results = repository.all_data()
     return results
 
-@the_guardian_router.get("/content/word={word}", response_model=List[TheGuardianSchema])
+@the_guardian_router.get("/content/keyword={word}", response_model=List[TheGuardianSchema])
 def filter_by_content(word: str, repository: BigQueryR = Depends(BigQueryR)):
     results = repository.filter_by_word(word)
     return results
