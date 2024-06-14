@@ -5,7 +5,11 @@ from api.main import app
 
 client = TestClient(app)
 
-def test_content():
+def test_all_content_data():
     response = client.get("/content")
+    assert response.status_code == 200
+
+def test_filter_by_word():
+    response = client.get("/content/pandas")
     assert response.status_code == 200
 
