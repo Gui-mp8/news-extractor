@@ -1,9 +1,9 @@
 # News Extractor
 
-This project scraps data from [the guardian](https://www.theguardian.com/au), ingest the data in a `BigQuery table` and then raise an `API` that consume the data from BigQuery. Moreover, a Design Pattern called [Repository](https://python.plainenglish.io/design-patterns-in-python-repository-pattern-1c2e5070a01c) was used to make a well structured code.
+providesThis project scraps data from [the guardian](https://www.theguardian.com/au), ingest the data in a `BigQuery table` and then provides an `API` the consume the data from BigQuery. The project utilizes a Design Pattern called [Repository](https://python.plainenglish.io/design-patterns-in-python-repository-pattern-1c2e5070a01c) was used to make a well structured code.
 
 ## Pre-Requisites
-Before running the code, you must have this tools installed:
+Before running the code, ensure you have the following tools installed:
 
 - [Python](https://www.python.org/downloads/)
 
@@ -25,15 +25,16 @@ After creating the Google Cloud Account you will need pass trough some steps
 
 ## Execution
 
-You must create **two** shell enviroments
+Create **two** shell enviroments
 
 
-- At the first one you will run:
+ - In the first environment, run:
 
 ```
 docker compose up
 ```
-- At the second one you will consume the API with this command
+- In the second environment, consume the API with the following command:
+
 
 ```
 curl -i http://0.0.0.0:8000/content/pandas
