@@ -17,11 +17,15 @@ Before running the code, ensure you have the following tools installed:
 
 After creating the Google Cloud Account you will need pass trough some steps
 
-- Step 1 : [Create a Service Account and Add Owner permission](https://www.youtube.com/watch?v=aD9vU1a7WXo) to easily run the code
+- Step 1 : [Create a Service Account and Add BigQuery Admin permission](https://www.youtube.com/watch?v=aD9vU1a7WXo) to easily run the code
 
 - Step 2 : [Create a service account key](https://youtu.be/dj9fxiuz4WM?t=66)
 
 - Step 3 : save it with the name of `news-extraction.json`, or change the key name on both of Dockerfiles
+
+- Step 4 : Modify the file `config.yaml` with the respective data of your project
+
+**OBS** If you want to extract data from other the guardian site topic, follow the examples inside the config.yaml file.
 
 ## Execution
 
@@ -41,7 +45,7 @@ docker compose up
 In the second environment, consume the API with the following command:
 
 ```
-curl -i http://0.0.0.0:8000/content/keyword=pandas
+curl -i http://0.0.0.0:8000/content/keyword=russia
 ```
 
 Or you can make a test with any language:
@@ -50,7 +54,7 @@ Or you can make a test with any language:
 
 import requests
 
-response = requests.get("http://0.0.0.0:8000/content/keyword=pandas")
+response = requests.get("http://0.0.0.0:8000/content/keyword=russia")
 
 if response.status_code == 200:
 
@@ -59,7 +63,7 @@ if response.status_code == 200:
 ```
 
 
-`OBS`: Note that i write pandas after content, that means that i'm searching for content that has pandas on it.
+`OBS`: Note that i write pandas after content, that means that i'm searching for content that has russia on it.
 
 ## Conclusion
 

@@ -4,10 +4,10 @@ from google.cloud import bigquery
 from interfaces.repository import IRepository
 
 class BigQueryR(IRepository):
-    def __init__(self, project_name: str, dataset_name: str, table_name: str) -> None:
+    def __init__(self, project_name: str) -> None:
         self.client = bigquery.Client(project=project_name)
-        self.dataset_name = dataset_name
-        self.table_name = table_name
+        self.dataset_name = "the_guardian"
+        self.table_name = "daily_jornal_data"
 
     def create_dataset(self) -> None:
         dataset_ref = self.client.dataset(self.dataset_name)

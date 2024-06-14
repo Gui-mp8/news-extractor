@@ -2,7 +2,7 @@ project_id: news-extraction-426201
 extraction:
   site:
     the_guardian:
-      dataset_name: the_guardian
-      table: 
-      - name: au
-        site_url: https://www.theguardian.com/au
+      urls:
+        - https://www.theguardian.com/au
+        - https://www.theguardian.com/international
+        - https://www.theguardian.com/environment/climate-crisis

@@ -7,7 +7,7 @@ class IRepository(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def filter_by_word(self) -> List[Dict[str, Any]]:
+    def filter_by_keyword(self) -> List[Dict[str, Any]]:
         raise NotImplementedError
 
     # @abstractmethod
