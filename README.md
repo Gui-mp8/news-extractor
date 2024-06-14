@@ -1,6 +1,8 @@
 # News Extractor
 
-providesThis project scraps data from [the guardian](https://www.theguardian.com/au), ingest the data in a `BigQuery table` and then provides an `API` the consume the data from BigQuery. The project utilizes a Design Pattern called [Repository](https://python.plainenglish.io/design-patterns-in-python-repository-pattern-1c2e5070a01c) was used to make a well structured code.
+This project scraps data from [the guardian](https://www.theguardian.com/au), ingest the data in a `BigQuery table` and then provides an `API` that consume the data from BigQuery.
+
+This project utilizes a Design Pattern called [Repository](https://python.plainenglish.io/design-patterns-in-python-repository-pattern-1c2e5070a01c), which is a well-established pattern that separates the data access logic from the business logic. By using this pattern, the codebase becomes more modular, testable, and maintainable.
 
 ## Pre-Requisites
 Before running the code, ensure you have the following tools installed:
@@ -37,7 +39,7 @@ docker compose up
 
 
 ```
-curl -i http://0.0.0.0:8000/content/pandas
+curl -i http://0.0.0.0:8000/content/word=pandas
 ```
 
 Note that i write pandas after content, that means that i'm searching for content that has pandas on it.
